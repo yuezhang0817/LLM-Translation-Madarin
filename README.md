@@ -270,16 +270,13 @@ If you use this project in your research, please cite:
 ```
 @misc{llm-translation-evaluation,
   title={LLM Translation Quality Evaluation: Mandarin to English},
-  author={Your Name},
-  year={2024},
+  author={Yue Zhang},
+  year={2025},
   publisher={GitHub},
   url={https://github.com/yourusername/LLM-Translation-Madarin}
 }
 ```
 
-## License
-
-This project is released under the MIT License. See LICENSE file for details.
 
 ## Acknowledgments
 
@@ -292,6 +289,5 @@ This project is released under the MIT License. See LICENSE file for details.
 
 For questions, issues, or collaboration opportunities, please open an issue on GitHub.
 
----
 
 **Note**: This project is for research and educational purposes. Translation quality assessment is subjective and should be interpreted in context with domain expertise.
