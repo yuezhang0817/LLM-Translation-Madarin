@@ -187,13 +187,6 @@ The script generates the following visualizations for each text type (news, red_
 
 ## Key Metrics
 
-### Semantic Similarity Levels
-- **Excellent (A+)**: ≥ 0.90
-- **Very Good (A)**: 0.80 - 0.89
-- **Good (B)**: 0.70 - 0.79
-- **Fair (C)**: 0.60 - 0.69
-- **Needs Improvement (D)**: < 0.60
-
 ### Sentiment Categories
 - **Optimistic**: Positive, hopeful expressions
 - **Thankful**: Gratitude and appreciation
