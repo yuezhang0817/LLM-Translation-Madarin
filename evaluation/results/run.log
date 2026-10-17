@@ -1,0 +1,39 @@
+news_1: 7 source / 7 expert paragraphs -> 7 segments (min LaBSE cosine 0.748)
+news_2: 7 source / 17 expert paragraphs -> 7 segments (min LaBSE cosine 0.700)
+news_3: 7 source / 8 expert paragraphs -> 7 segments (min LaBSE cosine 0.678)
+news_4: 7 source / 10 expert paragraphs -> 7 segments (min LaBSE cosine 0.882)
+news_5: 8 source / 9 expert paragraphs -> 8 segments (min LaBSE cosine 0.814)
+news_6: 8 source / 9 expert paragraphs -> 8 segments (min LaBSE cosine 0.792)
+red_mansions_1: 47 source / 61 expert paragraphs -> 46 segments (min LaBSE cosine 0.299)
+  check segment 40: source paragraphs 42-42 <-> expert 51-53 (cosine 0.299)
+red_mansions_2: 24 source / 23 expert paragraphs -> 22 segments (min LaBSE cosine 0.590)
+red_mansions_3: 40 source / 43 expert paragraphs -> 37 segments (min LaBSE cosine 0.542)
+red_sorghum_1: 43 source / 44 expert paragraphs -> 43 segments (min LaBSE cosine 0.449)
+red_sorghum_2: 5 source / 5 expert paragraphs -> 5 segments (min LaBSE cosine 0.668)
+red_sorghum_3: 63 source / 63 expert paragraphs -> 63 segments (min LaBSE cosine 0.463)
+red_sorghum_4: 143 source / 143 expert paragraphs -> 143 segments (min LaBSE cosine 0.458)
+BERTScore (roberta-large): 21 outputs and 21 references exceed 510 tokens and are truncated
+BERTScore hash: roberta-large_L17_no-idf_version=0.3.12(hug_trans=4.57.6)
+Unbabel/wmt22-comet-da: 47 outputs and 3 sources exceed 510 tokens and are truncated
+
+=== System-level means (95% bootstrap CI) ===
+
+[news] n_segments=44
+  GPT-4             bertscore_p=0.9415 [0.9364,0.9461]  bertscore_r=0.9403 [0.9349,0.9457]  bertscore_f1=0.9409 [0.9357,0.9456]  comet=0.8320 [0.8239,0.8400]
+  GPT-4o            bertscore_p=0.9469 [0.9421,0.9519]  bertscore_r=0.9451 [0.9390,0.9514]  bertscore_f1=0.9460 [0.9404,0.9510]  comet=0.8389 [0.8332,0.8442]
+  DeepSeek          bertscore_p=0.9367 [0.9238,0.9470]  bertscore_r=0.9399 [0.9298,0.9487]  bertscore_f1=0.9380 [0.9264,0.9477]  comet=0.8206 [0.7824,0.8472]
+  Google Translate  bertscore_p=0.9394 [0.9340,0.9443]  bertscore_r=0.9393 [0.9335,0.9445]  bertscore_f1=0.9393 [0.9340,0.9443]  comet=0.8298 [0.8210,0.8377]
+
+[red_mansions] n_segments=105
+  GPT-4             bertscore_p=0.8765 [0.8729,0.8803]  bertscore_r=0.8543 [0.8513,0.8575]  bertscore_f1=0.8652 [0.8623,0.8683]  comet=0.6934 [0.6818,0.7039]
+  GPT-4o            bertscore_p=0.8779 [0.8741,0.8815]  bertscore_r=0.8565 [0.8535,0.8597]  bertscore_f1=0.8670 [0.8640,0.8701]  comet=0.7128 [0.7012,0.7241]
+  DeepSeek          bertscore_p=0.8724 [0.8683,0.8766]  bertscore_r=0.8567 [0.8537,0.8599]  bertscore_f1=0.8644 [0.8610,0.8678]  comet=0.7065 [0.6943,0.7176]
+  Google Translate  bertscore_p=0.8644 [0.8606,0.8678]  bertscore_r=0.8427 [0.8399,0.8457]  bertscore_f1=0.8533 [0.8506,0.8561]  comet=0.6154 [0.6039,0.6256]
+
+[red_sorghum] n_segments=254
+  GPT-4             bertscore_p=0.9100 [0.9071,0.9129]  bertscore_r=0.9087 [0.9059,0.9114]  bertscore_f1=0.9093 [0.9064,0.9118]  comet=0.7501 [0.7412,0.7583]
+  GPT-4o            bertscore_p=0.9124 [0.9098,0.9154]  bertscore_r=0.9108 [0.9081,0.9138]  bertscore_f1=0.9116 [0.9092,0.9142]  comet=0.7616 [0.7527,0.7699]
+  DeepSeek          bertscore_p=0.9167 [0.9142,0.9193]  bertscore_r=0.9168 [0.9142,0.9196]  bertscore_f1=0.9167 [0.9141,0.9191]  comet=0.7708 [0.7629,0.7787]
+  Google Translate  bertscore_p=0.9026 [0.8993,0.9056]  bertscore_r=0.9009 [0.8981,0.9040]  bertscore_f1=0.9016 [0.8988,0.9044]  comet=0.7100 [0.6985,0.7211]
+
+Results written to /Users/john/Projects/LLM-Translation-Madarin/evaluation/results

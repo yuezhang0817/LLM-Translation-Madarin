@@ -28,10 +28,17 @@ This project analyzes the translation quality of multiple translation systems by
 
 ## Key Features
 
-### 1. Semantic Similarity Analysis
-- Uses Sentence Transformers (`all-MiniLM-L6-v2`, `all-mpnet-base-v2`)
-- Computes cosine similarity between translations and expert versions
-- Supports both sentence-level and paragraph-level comparison
+### 1. Translation Quality Metrics (`evaluation/compute_mt_metrics.py`)
+- **BERTScore** precision / recall / F1 against the expert translation (`roberta-large`)
+- **COMET** (`Unbabel/wmt22-comet-da`) using source, output and expert reference
+- Optional reference-free **CometKiwi** (`--kiwi`)
+- Expert paragraphs are aligned to the source with a LaBSE-based monotonic aligner; scores are
+  per aligned segment, aggregated with 95% bootstrap confidence intervals
+- See [`evaluation/METRICS.md`](evaluation/METRICS.md) for exactly what every script computes
+
+### 1b. Sentence-BERT Cosine Similarity (original analysis)
+- Uses Sentence Transformers (`all-MiniLM-L6-v2` in the main script, `all-mpnet-base-v2` in the comparison tables)
+- Cosine similarity of pooled sentence embeddings. This is **not** BERTScore
 
 ### 2. Sentiment Analysis
 - Multi-label sentiment classification with 9 emotion categories:
@@ -49,7 +56,7 @@ This project analyzes the translation quality of multiple translation systems by
 ```
 Overall Score = 0.5 × Semantic Similarity + 0.5 × Sentiment Similarity
 ```
-- Semantic Similarity: Cosine similarity with expert translation
+- Semantic Similarity: Sentence-BERT (`all-MiniLM-L6-v2`) cosine similarity with expert translation, computed on mean-pooled embeddings of the whole corpus
 - Sentiment Similarity: Cosine similarity of positive/negative ratio vectors
 
 ### 5. Advanced Visualizations
@@ -83,6 +90,10 @@ LLM-Translation-Madarin/
 ├── semantic similarity compare table/  # Sentence-level similarity analysis
 │   ├── translation_similarity_analysis.py
 │   └── *.xlsx                          # Similarity comparison results
+│
+├── evaluation/                         # BERTScore + COMET evaluation
+│   ├── compute_mt_metrics.py
+│   └── METRICS.md                      # Metric documentation / audit
 │
 ├── plot/                               # Generated visualizations
 │
@@ -136,7 +147,16 @@ This will:
 - Generate comprehensive visualizations
 - Output detailed statistical reports
 
-### 3. Sentence-Level Similarity Analysis
+### 3. BERTScore and COMET Evaluation
+
+```bash
+pip install "unbabel-comet>=2.2" bert-score sentence-transformers pandas scipy
+python evaluation/compute_mt_metrics.py            # add --kiwi for reference-free CometKiwi
+```
+
+Writes `evaluation/results/{segment_scores,system_scores,metric_correlations}.csv` and per-document alignments.
+
+### 4. Sentence-Level Similarity Analysis
 
 For detailed sentence-level comparison:
 
